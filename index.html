@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kado Spesial</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: sans-serif; color: white; }
+        .card { width: 90%; max-width: 400px; background: #111; padding: 25px; border-radius: 24px; text-align: center; border: 1px solid #333; }
+        .slide { display: none; }
+        .active { display: block; animation: fadeIn 0.6s ease; }
+        img { width: 100%; border-radius: 16px; aspect-ratio: 2/3; object-fit: cover; margin-bottom: 20px; }
+        .btn { background: #3498db; color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; width: 100%; font-weight: bold; }
+        .hidden { display: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div id="start">
+            <h2>Congraduation Muhammad Faiz Fauzi, S.Farm., M.Biotek ✨</h2>
+            <div style="font-size: 80px; cursor: pointer;" onclick="openGift()">🎁</div>
+            <p style="color: #666;">Coba pencet iz wkkwkwkw (mff masih belajar🗿)</p>
+        </div>
+        <div id="gallery" class="hidden">
+            <div class="slide active"><img src="1.png"><button class="btn" onclick="move(1)">Lanjut</button></div>
+            <div class="slide"><img src="2.png"><button class="btn" onclick="move(1)">Lanjut</button></div>
+            <div class="slide"><img src="3.png"><button class="btn" onclick="move(1)">Lanjut</button></div>
+            <div class="slide"><img src="4.png"><button class="btn" onclick="move(1)">Lanjut</button></div>
+            <div class="slide"><img src="5.png"><button class="btn" onclick="finish()">Selesai</button></div>
+        </div>
+    </div>
+    <script>
+        let idx = 0;
+        const slides = document.querySelectorAll('.slide');
+        function openGift() {
+            confetti();
+            document.getElementById('start').classList.add('hidden');
+            document.getElementById('gallery').classList.remove('hidden');
+        }
+        function move(n) {
+            slides[idx].classList.remove('active');
+            idx += n;
+            slides[idx].classList.add('active');
+        }
+        function finish() {
+            confetti({ particleCount: 200, spread: 100 });
+            alert("Thank u udah liat wkwkwkkw 🗿🗿🗿");
+        }
+    </script>
+</body>
+</html>
